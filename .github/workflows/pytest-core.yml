@@ -13,7 +13,11 @@ on:
 jobs:
   build:
     name: ${{ matrix.name }}
-    runs-on: ubuntu-16.04
+    when:
+      conditions:
+        any:
+          runs-on: ubuntu-16.04
+          runs-on: osx    
 
     env:
       DEVITO_ARCH: "gcc-${{ matrix.gcc-version }}"
